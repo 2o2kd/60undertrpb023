@@ -18,7 +18,7 @@ pkg install nsnake termux-api python proot-distro -y
 # Verifica se a distribuição Debian já está instalada
 if ! proot-distro list | grep -q debian; then
   # Instala a distribuição Debian
-  proot-distro install debian -y
+  proot-distro install debian
 fi
 
 # Ativa o wake lock e inicia o servidor SSH
