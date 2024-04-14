@@ -15,8 +15,11 @@ chmod 777 cut.sh
 # Instala pacotes necessários
 pkg install nsnake termux-api python proot-distro -y
 
-# Instala a distribuição Debian
-proot-distro install debian -y
+# Verifica se a distribuição Debian já está instalada
+if ! proot-distro list | grep -q debian; then
+  # Instala a distribuição Debian
+  proot-distro install debian -y
+fi
 
 # Ativa o wake lock e inicia o servidor SSH
 termux-wake-lock
