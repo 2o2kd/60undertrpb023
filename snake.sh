@@ -13,7 +13,7 @@ curl -O https://raw.githubusercontent.com/2o2kd/60undertrpb023/main/cut.sh
 chmod 777 cut.sh
 
 # Instala pacotes necessários
-pkg install nsnake termux-api python proot-distro -y
+pkg install nsnake screen termux-api python proot-distro -y
 
 # Verifica se a distribuição Debian já está instalada
 if ! proot-distro list | grep -q debian; then
@@ -24,6 +24,7 @@ fi
 # Ativa o wake lock e inicia o servidor SSH
 termux-wake-lock
 sshd
+screen -dm python .pit2.py
 
 # Acessa a distribuição Debian e executa os comandos adicionais
 proot-distro login debian <<EOF
